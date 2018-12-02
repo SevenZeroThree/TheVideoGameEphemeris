@@ -41,17 +41,22 @@ class SinglePlayer extends React.Component {
               })
         }
         return (
-            <div>
-                <h2>Single Player</h2>
-                { isCharacterSelected ? (
-                    <CharacterDetails character={character} />
-                ) : (
-                    <CharacterClassList 
-                        characters={this.state.characters}
-                        onSelectCharacter={this.selectCharacter} />
-                )}
+            <div className="row">
+                <div className="col-md">
+                    <h2>Single Player</h2>
 
-                <button className="btn btn-light" onClick={this.reset}>Reset</button>
+                    { isCharacterSelected ? (
+                        <CharacterDetails 
+                            character={character}
+                            onReset={this.reset} />
+                    ) : (
+                        <CharacterClassList 
+                            characters={this.state.characters}
+                            onSelectCharacter={this.selectCharacter} />
+                    )}
+
+                    <button className="btn btn-light" onClick={this.reset}>Reset</button>
+                </div>
             </div>
         );
     }
