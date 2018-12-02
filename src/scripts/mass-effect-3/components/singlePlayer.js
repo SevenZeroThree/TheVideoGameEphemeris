@@ -8,28 +8,18 @@ class SinglePlayer extends React.Component {
         super(props);
         this.selectCharacter = this.selectCharacter.bind(this);
         this.reset = this.reset.bind(this);
-        this.state = {selectedCharacter: ''};
+        this.state = { characters: [], selectedCharacter: '' };
     }
 
-    getCharacters() {
-        return [
-            {
-                name: 'Engineer',
-                description: 'engineer description'
-            },
-            {
-                name: 'Vanguard',
-                description: 'vanguard description'
-            },
-            {
-                name: 'Infiltrator',
-                description: 'infiltrator description'
-            },
-            {
-                name: 'Soldier',
-                description: 'soldier description'
-            }
-        ];
+    componentDidMount() {
+        const component = this;
+        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function(data) {
+                component.setState({characters: data.classes});
+            });
     }
 
     selectCharacter(name) {
@@ -57,7 +47,7 @@ class SinglePlayer extends React.Component {
                     <CharacterDetails character={character} />
                 ) : (
                     <CharacterClassList 
-                        characters={this.getCharacters()}
+                        characters={this.state.characters}
                         onSelectCharacter={this.selectCharacter} />
                 )}
 
