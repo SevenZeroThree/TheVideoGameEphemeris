@@ -1,5 +1,7 @@
 import React from "react";
 
+import toTitleCase from '../../prototypes/stringPrototypes';
+
 class CharacterClassListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -8,9 +10,7 @@ class CharacterClassListItem extends React.Component {
 
   selectCharacter(event) {
     var name = event.target.innerText;
-    console.log('selecting ' + name);
-
-    this.props.onSelectCharacter(name);
+    this.props.onSelectCharacter(name.toLowerCase());
   }
 
   render() {
@@ -19,7 +19,7 @@ class CharacterClassListItem extends React.Component {
       <div className="col-sm-6" onClick={this.selectCharacter}>
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">{character.name}</h5>
+            <h5 className="card-title">{character.name.toTitleCase()}</h5>
             <p className="card-text">{character.description}</p>
           </div>
         </div>
