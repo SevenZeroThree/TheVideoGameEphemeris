@@ -24,11 +24,17 @@ class SinglePlayer extends React.Component {
         ];
     }
 
+    selectCharacter(name) {
+        console.log('You have selected: ' + name);
+    }
+
     render() {
       return (
         <div>
             <h2>Single Player</h2>
-            <CharacterClassList characters={this.getCharacters()} />
+            <CharacterClassList 
+                characters={this.getCharacters()}
+                onSelectCharacter={this.selectCharacter} />
         </div>
       );
     }
