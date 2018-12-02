@@ -5,6 +5,7 @@ function CharacterClass(props) {
     return (
       <div>
         <h5>{character.name}</h5>
+        <p>{character.description}</p>
       </div>
     );
   }

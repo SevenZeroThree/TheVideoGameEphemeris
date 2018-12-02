@@ -6,16 +6,20 @@ class SinglePlayer extends React.Component {
     getCharacters() {
         return [
             {
-                name: 'Engineer'
+                name: 'Engineer',
+                description: 'engineer description'
             },
             {
-                name: 'Vanguard'
+                name: 'Vanguard',
+                description: 'vanguard description'
             },
             {
-                name: 'Infiltrator'
+                name: 'Infiltrator',
+                description: 'infiltrator description'
             },
             {
-                name: 'Soldier'
+                name: 'Soldier',
+                description: 'soldier description'
             }
         ];
     }
