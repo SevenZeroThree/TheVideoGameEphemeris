@@ -7,6 +7,7 @@ class SinglePlayer extends React.Component {
     constructor(props) {
         super(props);
         this.selectCharacter = this.selectCharacter.bind(this);
+        this.reset = this.reset.bind(this);
         this.state = {selectedCharacter: ''};
     }
 
@@ -36,6 +37,10 @@ class SinglePlayer extends React.Component {
         this.setState({selectedCharacter: name});
     }
 
+    reset() {
+        this.setState({selectedCharacter: ''});
+    }
+
     render() {
         const isCharacterSelected = this.state.selectedCharacter !== '';
         let character = null;
@@ -55,6 +60,8 @@ class SinglePlayer extends React.Component {
                         characters={this.getCharacters()}
                         onSelectCharacter={this.selectCharacter} />
                 )}
+
+                <button onClick={this.reset}>Reset</button>
             </div>
         );
     }
