@@ -1,16 +1,20 @@
 import React from "react";
 
+import AbilityList from './abilityList';
+
 class CharacterDetails extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const character = this.props.character;
+    const selectedCharacter = this.props.character;
+
     return (
       <div>
-        <h5 onClick={this.selectCharacter}>{character.name}</h5>
-        <p>{character.description}</p>
+        <h1>{selectedCharacter.name}</h1>
+        <h3>Abilities</h3>
+        <AbilityList abilities={selectedCharacter.abilities} />
       </div>
     );
   }
