@@ -16,10 +16,15 @@ class CharacterClassListItem extends React.Component {
   render() {
     const character = this.props.character;
     return (
-      <div>
-        <h5 onClick={this.selectCharacter}>{character.name}</h5>
-        <p>{character.description}</p>
+      <div className="col-sm-6" onClick={this.selectCharacter}>
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{character.name}</h5>
+            <p className="card-text">{character.description}</p>
+          </div>
+        </div>
       </div>
+      
     );
   }
 }

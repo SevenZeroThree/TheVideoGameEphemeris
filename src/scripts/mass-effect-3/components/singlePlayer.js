@@ -37,7 +37,7 @@ class SinglePlayer extends React.Component {
         if (isCharacterSelected) {
             const selectedCharacter = this.state.selectedCharacter;
             character = this.state.characters.find(function(c) {
-                return c.name ===  selectedCharacter;
+                return c.name ===  selectedCharacter.trim();
               })
         }
         return (
@@ -51,7 +51,7 @@ class SinglePlayer extends React.Component {
                         onSelectCharacter={this.selectCharacter} />
                 )}
 
-                <button onClick={this.reset}>Reset</button>
+                <button className="btn btn-light" onClick={this.reset}>Reset</button>
             </div>
         );
     }

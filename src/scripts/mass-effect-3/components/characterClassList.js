@@ -12,7 +12,7 @@ function CharacterClassList(props) {
     );
 
     return (
-      <div>{listOfCharacters}</div>
+      <div className="row">{listOfCharacters}</div>
     );
   }
 
