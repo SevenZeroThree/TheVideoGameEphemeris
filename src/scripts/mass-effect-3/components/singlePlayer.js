@@ -36,7 +36,7 @@ class SinglePlayer extends React.Component {
         let character = null;
         if (isCharacterSelected) {
             const selectedCharacter = this.state.selectedCharacter;
-            character = this.getCharacters().find(function(c) {
+            character = this.state.characters.find(function(c) {
                 return c.name ===  selectedCharacter;
               })
         }
