@@ -3,6 +3,12 @@ import React from "react";
 import CharacterClassList from './characterClassList';
 
 class SinglePlayer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.selectCharacter = this.selectCharacter.bind(this);
+        this.state = {selectedCharacter: ''};
+    }
+
     getCharacters() {
         return [
             {
@@ -26,6 +32,7 @@ class SinglePlayer extends React.Component {
 
     selectCharacter(name) {
         console.log('You have selected: ' + name);
+        this.setState({selectedCharacter: name});
     }
 
     render() {
@@ -35,6 +42,9 @@ class SinglePlayer extends React.Component {
             <CharacterClassList 
                 characters={this.getCharacters()}
                 onSelectCharacter={this.selectCharacter} />
+
+            <h4>Selected Character</h4>
+            <p>{this.state.selectedCharacter}</p>
         </div>
       );
     }
