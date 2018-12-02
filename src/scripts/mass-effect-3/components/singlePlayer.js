@@ -1,6 +1,7 @@
 import React from "react";
 
 import CharacterClassList from './characterClassList';
+import CharacterDetails from './characterDetails';
 
 class SinglePlayer extends React.Component {
     constructor(props) {
@@ -36,17 +37,26 @@ class SinglePlayer extends React.Component {
     }
 
     render() {
-      return (
-        <div>
-            <h2>Single Player</h2>
-            <CharacterClassList 
-                characters={this.getCharacters()}
-                onSelectCharacter={this.selectCharacter} />
-
-            <h4>Selected Character</h4>
-            <p>{this.state.selectedCharacter}</p>
-        </div>
-      );
+        const isCharacterSelected = this.state.selectedCharacter !== '';
+        let character = null;
+        if (isCharacterSelected) {
+            const selectedCharacter = this.state.selectedCharacter;
+            character = this.getCharacters().find(function(c) {
+                return c.name ===  selectedCharacter;
+              })
+        }
+        return (
+            <div>
+                <h2>Single Player</h2>
+                { isCharacterSelected ? (
+                    <CharacterDetails character={character} />
+                ) : (
+                    <CharacterClassList 
+                        characters={this.getCharacters()}
+                        onSelectCharacter={this.selectCharacter} />
+                )}
+            </div>
+        );
     }
   }
 
