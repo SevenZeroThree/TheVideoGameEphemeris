@@ -7,3 +7,5 @@ class SinglePlayer extends React.Component {
       );
     }
   }
+
+export default SinglePlayer;
