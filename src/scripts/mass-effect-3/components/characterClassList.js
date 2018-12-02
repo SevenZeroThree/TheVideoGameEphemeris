@@ -12,14 +12,17 @@ function CharacterClassList(props) {
     );
 
     return (
-      <div>
-        <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-                <li className="breadcrumb-item active" aria-current="page">Home</li>
-            </ol>
-        </nav>
-
-        {listOfCharacters}
+      <div className="row">
+        <div className="col-sm">
+          <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                  <li className="breadcrumb-item active" aria-current="page">Home</li>
+              </ol>
+          </nav>
+          <div className="row">
+            {listOfCharacters}
+          </div>
+        </div>
       </div>
     );
   }

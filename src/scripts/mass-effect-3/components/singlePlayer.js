@@ -42,7 +42,7 @@ class SinglePlayer extends React.Component {
         }
         return (
             <div className="row">
-                <div className="col-md">
+                <div className="col-sm">
                     <h2>Single Player</h2>
 
                     { isCharacterSelected ? (
