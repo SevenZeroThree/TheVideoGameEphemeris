@@ -1,7 +1,12 @@
 import React from "react";
 
-function CharacterClass(props) {
-    var character = props.character;
+class CharacterClassListItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const character = this.props.character;
     return (
       <div>
         <h5>{character.name}</h5>
@@ -9,5 +14,6 @@ function CharacterClass(props) {
       </div>
     );
   }
+}
 
-export default CharacterClass;
+export default CharacterClassListItem;
