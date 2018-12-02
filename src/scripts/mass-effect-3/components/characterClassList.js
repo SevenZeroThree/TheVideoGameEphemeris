@@ -1,11 +1,11 @@
 import React from "react";
 
-import CharacterClass from './characterClass';
+import CharacterClassListItem from './characterClassListItem';
 
 function CharacterClassList(props) {
     const characters = props.characters;
     const listOfCharacters = characters.map((character) =>
-      <CharacterClass character={character} />
+      <CharacterClassListItem character={character} />
     );
 
     return (
