@@ -2,6 +2,7 @@ import React from "react";
 
 import CharacterClassList from './characterClassList';
 import CharacterDetails from './characterDetails';
+import { baseUrl } from '../constants';
 
 class SinglePlayer extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class SinglePlayer extends React.Component {
 
     componentDidMount() {
         const component = this;
-        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/characters')
+        fetch(baseUrl + 'single-player/characters')
             .then(function (response) {
                 return response.json();
             })
@@ -28,7 +29,7 @@ class SinglePlayer extends React.Component {
             });
 
         const component = this;
-        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/characters/' +character.id)
+        fetch(baseUrl + 'single-player/characters/' + character.id)
             .then(function (response) {
                 return response.json();
             })
