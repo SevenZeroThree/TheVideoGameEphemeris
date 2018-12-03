@@ -21,9 +21,13 @@ class CharacterDetails extends React.Component {
             </ol>
         </nav>
 
-        <h1>{selectedCharacter.name.toTitleCase()}</h1>
-        <h3>Abilities</h3>
-        <AbilityList abilities={selectedCharacter.abilities} />
+        <h2>{selectedCharacter.name.toTitleCase()}</h2>
+        <div className="row">
+          <div className="col-sm">
+            <h3>Abilities</h3>
+            <AbilityList abilities={selectedCharacter.abilities} />
+          </div>
+        </div>
       </div>
     );
   }

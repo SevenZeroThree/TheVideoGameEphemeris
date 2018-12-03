@@ -8,8 +8,10 @@ class AbilityListItem extends React.Component {
   render() {
     const ability = this.props.ability;
     return (
-      <div>
-        <h5>{ability.name}</h5>
+      <div className="row">
+        <div className="col-sm">
+          <h5>{ability.name}</h5>
+        </div>
       </div>
     );
   }
