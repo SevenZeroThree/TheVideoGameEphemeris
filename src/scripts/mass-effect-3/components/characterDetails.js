@@ -1,7 +1,6 @@
 import React from "react";
 
 import AbilityList from './abilityList';
-import toTitleCase from '../../prototypes/stringPrototypes';
 
 class CharacterDetails extends React.Component {
   constructor(props) {
@@ -17,11 +16,11 @@ class CharacterDetails extends React.Component {
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
                 <li className="breadcrumb-item" aria-current="page"><a href="#" onClick={this.props.onReset}>Home</a></li>
-                <li className="breadcrumb-item active" aria-current="page">{selectedCharacter.name.toTitleCase()}</li>
+                <li className="breadcrumb-item active" aria-current="page">{selectedCharacter.name}</li>
             </ol>
         </nav>
 
-        <h2>{selectedCharacter.name.toTitleCase()}</h2>
+        <h2>{selectedCharacter.name}</h2>
         <div className="row">
           <div className="col-sm">
             <h3>Abilities</h3>

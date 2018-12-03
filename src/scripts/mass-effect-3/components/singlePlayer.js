@@ -8,38 +8,42 @@ class SinglePlayer extends React.Component {
         super(props);
         this.selectCharacter = this.selectCharacter.bind(this);
         this.reset = this.reset.bind(this);
-        this.state = { characters: [], selectedCharacter: '' };
+        this.state = { characters: [], selectedCharacter: {} };
     }
 
     componentDidMount() {
         const component = this;
-        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/')
+        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/characters')
             .then(function (response) {
                 return response.json();
             })
             .then(function(data) {
-                component.setState({characters: data.classes});
+                component.setState({characters: data});
             });
     }
 
-    selectCharacter(name) {
-        console.log('You have selected: ' + name);
-        this.setState({selectedCharacter: name});
+    selectCharacter(characterId) {
+        var character = this.state.characters.find(function(c) {
+            return c.id ===  characterId.trim();
+            });
+
+        const component = this;
+        fetch('https://thevideogameapi.azurewebsites.net/v1/mass-effect-3/single-player/characters/' +character.id)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function(data) {
+                component.setState({selectedCharacter: data});
+            });
     }
 
     reset() {
-        this.setState({selectedCharacter: ''});
+        this.setState({selectedCharacter: {} });
     }
 
     render() {
-        const isCharacterSelected = this.state.selectedCharacter !== '';
-        let character = null;
-        if (isCharacterSelected) {
-            const selectedCharacter = this.state.selectedCharacter;
-            character = this.state.characters.find(function(c) {
-                return c.name ===  selectedCharacter.trim();
-              })
-        }
+        const selectedCharacter = this.state.selectedCharacter;
+        const isCharacterSelected = selectedCharacter.id !== undefined && this.selectCharacter.id !== null;
         return (
             <div className="row">
                 <div className="col-sm">
@@ -47,7 +51,7 @@ class SinglePlayer extends React.Component {
 
                     { isCharacterSelected ? (
                         <CharacterDetails 
-                            character={character}
+                            character={this.state.selectedCharacter}
                             onReset={this.reset} />
                     ) : (
                         <CharacterClassList 
