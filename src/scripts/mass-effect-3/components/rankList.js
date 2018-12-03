@@ -11,7 +11,7 @@ function RankList(props) {
     );
 
     return (
-      <div>{listOfRanks}</div>
+      <div className="row">{listOfRanks}</div>
     );
   }
 
