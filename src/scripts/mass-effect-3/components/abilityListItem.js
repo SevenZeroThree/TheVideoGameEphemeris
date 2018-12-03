@@ -1,5 +1,7 @@
 import React from "react";
 
+import RankList from './rankList';
+
 class AbilityListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ class AbilityListItem extends React.Component {
       <div className="row">
         <div className="col-sm">
           <h5>{ability.name}</h5>
+          <RankList ranks={ability.ranks} />
         </div>
       </div>
     );
