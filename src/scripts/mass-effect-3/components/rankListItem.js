@@ -1,5 +1,7 @@
 import React from "react";
 
+import RankOptionList from './rankOptionList';
+
 class RankListItem extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class RankListItem extends React.Component {
     const rank = this.props.rank;
     return (
         <div className="col-sm">
-            <h5>{rank.level} - {rank.value}</h5>
+            <RankOptionList options={rank.options} />
         </div>
     );
   }

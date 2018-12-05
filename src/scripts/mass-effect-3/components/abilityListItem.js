@@ -14,7 +14,7 @@ class AbilityListItem extends React.Component {
         <div className="col-sm-3">
           <h5>{ability.name}</h5>
         </div>
-        <div class="col-sm">
+        <div className="col-sm">
           <RankList ranks={ability.ranks} />
         </div>
       </div>
