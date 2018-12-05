@@ -10,7 +10,7 @@ class RankListItem extends React.Component {
   render() {
     const rank = this.props.rank;
     return (
-        <div className="col-sm">
+        <div className="col-sm-2">
             <RankOptionList options={rank.options} />
         </div>
     );

@@ -11,10 +11,12 @@ class AbilityListItem extends React.Component {
     const ability = this.props.ability;
     return (
       <div className="row">
-        <div className="col-sm-3">
-          <h5>{ability.name}</h5>
-        </div>
         <div className="col-sm">
+          <div className="row">
+            <div className="col-sm">
+              <h5>{ability.name}</h5>
+            </div>
+          </div>
           <RankList ranks={ability.ranks} />
         </div>
       </div>
