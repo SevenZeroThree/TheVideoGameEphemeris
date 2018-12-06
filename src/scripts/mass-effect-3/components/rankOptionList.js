@@ -7,7 +7,8 @@ function RankOptionList(props) {
     const listOfOptions = options.map((option) =>
       <RankOptionListItem 
         key={option} 
-        option={option} />
+        option={option}
+        updateRemainingPoints={props.updateRemainingPoints} />
     );
 
     return (

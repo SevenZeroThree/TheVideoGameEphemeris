@@ -17,7 +17,9 @@ class AbilityListItem extends React.Component {
               <h5>{ability.name}</h5>
             </div>
           </div>
-          <RankList ranks={ability.ranks} />
+          <RankList 
+            ranks={ability.ranks}
+            updateRemainingPoints={this.props.updateRemainingPoints} />
         </div>
       </div>
     );

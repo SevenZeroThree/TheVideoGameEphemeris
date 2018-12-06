@@ -7,7 +7,8 @@ function RankList(props) {
     const listOfRanks = ranks.map((rank) =>
       <RankListItem 
         key={rank.level} 
-        rank={rank} />
+        rank={rank}
+        updateRemainingPoints={props.updateRemainingPoints} />
     );
 
     return (

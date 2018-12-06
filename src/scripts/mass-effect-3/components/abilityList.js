@@ -7,7 +7,8 @@ function AbilityList(props) {
     const listOfAbilities = abilities.map((ability) =>
       <AbilityListItem 
         key={ability.name} 
-        ability={ability} />
+        ability={ability}
+        updateRemainingPoints={props.updateRemainingPoints} />
     );
 
     return (

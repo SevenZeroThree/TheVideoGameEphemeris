@@ -5,6 +5,19 @@ import AbilityList from './abilityList';
 class CharacterDetails extends React.Component {
   constructor(props) {
     super(props);
+
+    this.updatePoints = this.updatePoints.bind(this);
+    this.state = { remainingPoints: 0 };
+  }
+
+  componentDidMount() {
+    this.setState({ remainingPoints: this.props.character.maximumPoints });
+  }
+
+  updatePoints(updateValue) {
+    var newPoints = this.state.remainingPoints + updateValue;
+
+    this.setState({ remainingPoints: newPoints });
   }
 
   render() {
@@ -23,7 +36,16 @@ class CharacterDetails extends React.Component {
         <div className="row">
           <div className="col-sm">
             <h3>Abilities</h3>
-            <AbilityList abilities={selectedCharacter.abilities} />
+          </div>
+          <div className="col-sm">
+            <p>{this.state.remainingPoints}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <AbilityList 
+              abilities={selectedCharacter.abilities}
+              updateRemainingPoints={this.updatePoints} />
           </div>
         </div>
       </div>

@@ -11,7 +11,9 @@ class RankListItem extends React.Component {
     const rank = this.props.rank;
     return (
         <div className="col-sm-2">
-            <RankOptionList options={rank.options} />
+            <RankOptionList 
+              options={rank.options}
+              updateRemainingPoints={this.props.updateRemainingPoints} />
         </div>
     );
   }
