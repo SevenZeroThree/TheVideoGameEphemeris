@@ -8,7 +8,8 @@ function AbilityList(props) {
       <AbilityListItem 
         key={ability.name} 
         ability={ability}
-        updateRemainingPoints={props.updateRemainingPoints} />
+        updateRemainingPoints={props.updateRemainingPoints}
+        resetSkillPoints={props.resetSkillPoints} />
     );
 
     return (

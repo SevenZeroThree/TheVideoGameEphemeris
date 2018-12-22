@@ -21,9 +21,12 @@ class RankOptionListItem extends React.Component {
   }
 
   render() {
+    if (this.state.resetSkillPoints) {
+      // When we are resetting the skill points, the option is not selected
+    }
     const buttonStyle = this.state.isSelected
-      ? "btn btn-primary"
-      : "btn btn-outline-primary";
+      ? "btn btn-sm btn-primary"
+      : "btn btn-sm btn-outline-primary";
     const option = this.props.option;
     return (
         <button onClick={this.toggleSelection} className={buttonStyle}>{option}</button>

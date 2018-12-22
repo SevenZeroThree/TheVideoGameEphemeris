@@ -8,7 +8,8 @@ function RankOptionList(props) {
       <RankOptionListItem 
         key={option} 
         option={option}
-        updateRemainingPoints={props.updateRemainingPoints} />
+        updateRemainingPoints={props.updateRemainingPoints}
+        resetSkillPoints={props.resetSkillPoints} />
     );
 
     return (

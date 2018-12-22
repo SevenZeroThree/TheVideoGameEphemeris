@@ -8,7 +8,8 @@ function RankList(props) {
       <RankListItem 
         key={rank.level} 
         rank={rank}
-        updateRemainingPoints={props.updateRemainingPoints} />
+        updateRemainingPoints={props.updateRemainingPoints}
+        resetSkillPoints={props.resetSkillPoints} />
     );
 
     return (

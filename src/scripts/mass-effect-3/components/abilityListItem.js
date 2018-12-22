@@ -19,7 +19,8 @@ class AbilityListItem extends React.Component {
           </div>
           <RankList 
             ranks={ability.ranks}
-            updateRemainingPoints={this.props.updateRemainingPoints} />
+            updateRemainingPoints={this.props.updateRemainingPoints}
+            resetSkillPoints={this.props.resetSkillPoints} />
         </div>
       </div>
     );

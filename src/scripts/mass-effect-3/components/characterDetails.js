@@ -7,7 +7,8 @@ class CharacterDetails extends React.Component {
     super(props);
 
     this.updatePoints = this.updatePoints.bind(this);
-    this.state = { remainingPoints: 0 };
+    this.resetSkillPoints = this.resetSkillPoints.bind(this);
+    this.state = { remainingPoints: 0, resetSkillPoints: false };
   }
 
   componentDidMount() {
@@ -18,6 +19,10 @@ class CharacterDetails extends React.Component {
     var newPoints = this.state.remainingPoints + updateValue;
 
     this.setState({ remainingPoints: newPoints });
+  }
+
+  resetSkillPoints() {
+    this.setState({ resetSkillPoints: true, remainingPoints: this.props.character.maximumPoints });
   }
 
   render() {
@@ -38,6 +43,10 @@ class CharacterDetails extends React.Component {
             <h3>Abilities</h3>
           </div>
           <div className="col-sm">
+            {/* <ResetSkillPointsButton onResetSkills={this.resetSkillPoints} /> */}
+            <button className="btn btn-secondary" onClick={this.resetSkillPoints}>Reset</button>
+          </div>
+          <div className="col-sm">
             <p>{this.state.remainingPoints}</p>
           </div>
         </div>
@@ -45,7 +54,8 @@ class CharacterDetails extends React.Component {
           <div className="col-sm">
             <AbilityList 
               abilities={selectedCharacter.abilities}
-              updateRemainingPoints={this.updatePoints} />
+              updateRemainingPoints={this.updatePoints}
+              resetSkillPoints={this.state.resetSkillPoints} />
           </div>
         </div>
       </div>
